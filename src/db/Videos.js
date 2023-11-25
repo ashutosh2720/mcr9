@@ -1,4 +1,4 @@
-//All Videos Data
+//All Videos Data for app
 
 export const videos = [
     {
