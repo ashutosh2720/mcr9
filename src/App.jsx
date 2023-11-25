@@ -1,23 +1,27 @@
-import { useState } from "react";
-import AcUnitIcon from "@mui/icons-material/AcUnit";
-import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Categorie from "./pages/Categorie";
-import Explore from "./pages/Explore";
-import VideoDescription from "./pages/VideoDescription";
+import {Route, Routes} from "react-router-dom";
+import Home from "./pages/Home.jsx";
+import './App.css'
+import SingleCategoryPage from "./pages/SingleCategoryPage.jsx";
+import SingleVideoPage from "./pages/SingleVideoPage.jsx";
+import Explore from "./pages/Explore.jsx";
+import Playlist from "./pages/Playlist.jsx";
+import WatchLater from "./pages/WatchLater.jsx";
+import PlaylistDetailsPage from "./pages/PlaylistDetailsPage.jsx";
 
-function App() {
-  return (
-    <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/categorie/:category" element={<Categorie />} />
-        <Route path="/explore" element={<Explore />} />
-        <Route path="/description/:videoId" element={<VideoDescription />} />
-      </Routes>
-    </>
-  );
+const App = () => {
+    return (
+        <div className='app_main p-6'>
+            <Routes>
+                <Route path={'/'} element={<Home/>} />
+                <Route path={'/explore'} element={<Explore/>} />
+                <Route path={'/playlist'} element={<Playlist/>} />
+                <Route path={'/watch-later'} element={<WatchLater/>} />
+                <Route path={'/category/:categoryName'} element={<SingleCategoryPage/>} />
+                <Route path={'/video/watch/:id'} element={<SingleVideoPage/>} />
+                <Route path={'/playlist/:playlistId'} element={<PlaylistDetailsPage/>} />
+            </Routes>
+        </div>
+    )
 }
 
-export default App;
+export default App
